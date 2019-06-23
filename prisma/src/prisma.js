@@ -12,9 +12,9 @@ export { prisma as default }
 
 // prisma.query prisma.mutation prisma.subscription prisma.exists
 
-// prisma.query.users(null, '{id name posts {id title}}').then((data) => {
-//     console.log(data)
-// })
+prisma.query.users(null, '{id name email posts {id title}}').then((data) => {
+    console.log(data)
+})
 
 // prisma.query.comments(null, '{id text author {id name}}').then((data) => {
 //     console.log(JSON.stringify(data, undefined, 2));
@@ -86,34 +86,34 @@ export { prisma as default }
 //     console.log(error.message)
 // })
 
-const updatePostForUser = async (postId, data) => {
-    const postExists = await prisma.exists.Post({ id: postId })
+// const updatePostForUser = async (postId, data) => {
+//     const postExists = await prisma.exists.Post({ id: postId })
 
-    if (!postExists) {
-        throw new Error('Post not found')
-    }
+//     if (!postExists) {
+//         throw new Error('Post not found')
+//     }
 
-    const post = await prisma.mutation.updatePost({
-        where: {
-            id: postId
-        },
-        data
-    }, '{ author { id name email posts { id title published } } }')
+//     const post = await prisma.mutation.updatePost({
+//         where: {
+//             id: postId
+//         },
+//         data
+//     }, '{ author { id name email posts { id title published } } }')
 
-    return post.author
-}
+//     return post.author
+// }
 
-updatePostForUser("cjx4xoe8r0029076209k935mw", { published: true }).then((user) => {
-    console.log(JSON.stringify(user, undefined, 2))
-}).catch((error) => {
-    console.log(error.message)
-})
+// updatePostForUser("cjx4xoe8r0029076209k935mw", { published: true }).then((user) => {
+//     console.log(JSON.stringify(user, undefined, 2))
+// }).catch((error) => {
+//     console.log(error.message)
+// })
 
 
 // check if exists
 
-prisma.exists.Comment({
-    id: '123'
-}).then(exists => {
-    console.log(exists)
-});
+// prisma.exists.Comment({
+//     id: '123'
+// }).then(exists => {
+//     console.log(exists)
+// });
