@@ -1,6 +1,6 @@
 endpoint: http://localhost:4466
 datamodel: datamodel.graphql
-# secret: thisismysupersecrettext
+secret: thisismysupersecrettext
 
 # Ensures Prisma client is re-generated after a datamodel change.
 hooks:

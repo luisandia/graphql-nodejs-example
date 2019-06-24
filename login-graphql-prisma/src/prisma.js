@@ -7,7 +7,8 @@ const prisma = new Prisma({
     secret: 'thisismysupersecrettext',
     fragmentReplacements
 })
-
+// generate token running - 'prisma token --copy' in terminal
+// in graphql playground add: { "Authorization":"Bearer REPLACE_WITH_TOKEN_GENERATED"}
 export { prisma as default }
 
 // prisma.query.users(null, '{id name email posts {id title}}').then((data) => {
