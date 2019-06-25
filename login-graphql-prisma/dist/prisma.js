@@ -1,13 +1,21 @@
-import { Prisma } from 'prisma-binding'
-import { fragmentReplacements } from './resolvers/index'
+'use strict';
 
-const prisma = new Prisma({
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = undefined;
+
+var _prismaBinding = require('prisma-binding');
+
+var _index = require('./resolvers/index');
+
+var prisma = new _prismaBinding.Prisma({
     typeDefs: 'src/generated/prisma.graphql',
     endpoint: process.env.PRISMA_ENDPOINT,
     secret: process.env.PRISMA_SECRET,
-    fragmentReplacements
-})
-export { prisma as default }
+    fragmentReplacements: _index.fragmentReplacements
+});
+exports.default = prisma;
 
 // generate token running - 'prisma token --copy' in terminal
 // in graphql playground add: { "Authorization":"Bearer REPLACE_WITH_TOKEN_GENERATED"}
